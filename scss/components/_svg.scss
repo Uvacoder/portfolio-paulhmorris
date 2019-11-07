@@ -1,0 +1,18 @@
+.bell {
+  display: block;
+  color: $white;
+  height: 25px;
+  width: 25px;
+}
+
+#Layer_1 path {
+  fill: white;
+}
+
+.social-image > #Layer_1 {
+    height: 70px;
+    width: 70px;
+    background-color: $accent-purple;
+    border: solid 10px $accent-purple;
+    border-radius: 100px;
+}

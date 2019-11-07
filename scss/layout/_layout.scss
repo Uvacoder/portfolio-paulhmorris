@@ -1,0 +1,171 @@
+#alert {display: none;}
+
+.chart {
+  position: relative;
+  overflow: auto;
+  height: 100%;
+  width: 100%;
+}
+
+canvas {
+    width: 100% !important;
+}
+
+.daily-traffic,
+.members,
+.message-users,
+.recent,
+.settings,
+.social,
+.mobile-users {
+  border-right: solid 1px $border;
+  border-top: solid 1px $border;
+}
+
+.social-wrap,
+.members,
+.recent,
+.message-users,
+.settings {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  @media screen and (min-width: 768px) {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .social-wrap {
+    justify-content: space-between;
+  }
+}
+
+.members-container {
+    padding: .6em;
+    width: 100%;
+    &:not(:last-child) {
+      border-bottom: inherit
+    }
+    & .profile-image {
+      height: 70px;
+      width: 70px;
+      border-radius: 50%;
+
+      @media screen and (min-width: 768px) {
+        height: 42px;
+        width: 42px;
+        margin-right: 10px;
+      }
+    }
+    // .members-container
+    @media screen and (min-width: 768px) {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      border-top: solid 1px $border;
+      & p, a {
+        font-size: 14px;
+        margin-bottom: 0;
+      }
+      & .arrow {
+        margin: 0 0 0 auto;
+        color: $base-purple;
+        font-size: 20px;
+      }
+      & .datestamp {
+        margin: 0 0 0 auto;
+        color: $font-color-light;
+      }
+      & .timestamp {
+        margin-top: 0;
+        color: $font-color-light;
+      }
+    }
+  }
+
+.traffic {
+  &-header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    & h3 {
+      display: block;
+      @media screen and (min-width: 768px) {
+        display: inline-block;
+      }
+    }
+    // .traffic-header 
+    @media screen and (min-width: 768px) {
+        flex-direction: row;
+    }
+  }
+  &-nav {
+    display: block;
+    margin: .5em;
+    line-height: 1em;
+    @media screen and (min-width: 768px) {
+      margin-left: auto;
+    }
+  }
+  &-nav-link {
+    font-size: 14px;
+    font-weight: 600;
+    display: inline-block;
+    padding: 6px 10px;
+    cursor: pointer;
+    transition: transform .25s;
+    &:hover {
+      transform: translateY(-2px);
+    }
+  }
+  & .active {
+    color: white;
+    font-weight: 600;
+    background: rgb(129, 201, 143);
+    border-radius: 14px;
+  }
+}
+
+.social-container {
+  flex-basis: calc(33.33% - 20px);
+  display: flex;
+  align-items: center;
+  max-width: 320px;
+  padding: 24px;
+  margin-bottom: 1.2em;
+  border: solid 1px $border;
+  border-radius: 4px;
+  background-color: #FBFBFB;
+}
+
+.arrow {
+  color: $base-purple;
+  display: none;
+  @media (min-width: 768px) {
+    display: inline-block;
+  }
+}
+
+// Adjusts the spans for grid items at desktop view
+@media screen and (min-width: 768px) {
+  .traffic, .social, .main-header {
+    grid-column: 1 / span 2;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .daily, .members, .message-users {
+    grid-column: 1 / span 1;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .mobile-users, .recent, .settings {
+    grid-column: 2 / span 1;
+  }
+}
