@@ -4,10 +4,46 @@ textarea {
   border: solid 1px $border;
   border-radius: 5px;
   background-color: #FBFBFB;
+  transition: border .1s ease-in;
+  &:focus {
+    border: solid 1px $accent-purple;
+  }
 }
 
+.autocomplete {
+  position: relative;
+  display: inline-block;
+  &-items {
+    position: absolute;
+    border: 1px solid $border;
+    border-bottom: none;
+    border-top: none;
+    z-index: 10;
+    top: 100%;
+    left: 0;
+    right: 0;
+    & div {
+      padding: 10px;
+      cursor: pointer;
+      background-color: #FBFBFB;
+      border-bottom: 1px solid #d4d4d4;
+      box-shadow: 3px 3px 8px rgba(100, 100, 100, 0.3);
+      &:hover {
+        background-color: $accent-purple;
+        color: $white;
+      }
+    }
+  }
+  &-active {
+    background-color: $accent-purple !important;
+    color: $white;
+  }
+}
+
+
 select {
-  width: 90%;
+  width: 100%;
+  margin-bottom: 1em;
   background: #FBFBFB;
   color: $font-color-light;
   height: 40px;
@@ -54,9 +90,8 @@ select {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: 90%;
+  width: 100%;
 }
-.form-field,
 .form-area {
-  margin-bottom: 1em;
+  margin: 1.3em 0 1em 0;
 }

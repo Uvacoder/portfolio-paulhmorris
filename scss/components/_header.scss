@@ -9,16 +9,14 @@
 }
 
 .title {
-  color: $white;
-  padding-left: 1em;
-  margin-right: auto;
+  padding-left: .4em;
+  margin: 0;
   height: 20px;
   line-height: 20px;
-  font-weight: 300;
-  font-size: 1.3em;
-  & strong {
-    color: $white;
-    font-weight: 700;
+
+  @media screen and (min-width: 768px) {
+    margin-right: auto;
+    padding-left: 1em;
   }
 }
 
@@ -26,16 +24,25 @@
   cursor: pointer;
   position: relative;
   &::after {
-    content: '';
+    content: "";
     width: 7px;
     height: 7px;
     background-color: rgb(133, 219, 138);
     border-radius: 50%;
     position: absolute;
-    top: 4px;
-    right: 15px;
+    top: 0;
+    right: -5px;
+
+      @media screen and (min-width: 768px) {
+        top: 4px;
+        right: 15px;
+      }
   }
-  
+  // Class gets added on first bell click to remove green dot
+  &.no-after::after {
+    content: none;
+  }
+
   @media screen and (min-width: 768px) {
     margin-right: 16px;
     padding: 8px 20px 8px 0;
@@ -69,5 +76,58 @@
 
   @media screen and (min-width: 768px) {
     display: block;
+  }
+}
+
+.notif {
+  display: none;
+  z-index: 100;
+  position: absolute;
+  width: 280px;
+  background-color: #ebebeb;
+  top: 35px;
+  right: -122px;
+  border-radius: 3px;
+  box-shadow: 5px 5px 20px rgba($base-purple, 0.6);
+
+    @media screen and (min-width: 768px) {
+      top: 107%;
+      right: 12px;
+      width: 320px;
+    }
+
+  &-ul {
+    margin-bottom: 0;
+  }
+  &-title {
+    padding: 1em 1em 0 1em;
+    color: $base-purple;
+    margin: 0 auto;
+  }
+  &-item {
+    padding: .1em 1em .3em 1em;
+    &:hover {
+      background-color: $white;
+    }
+    &:not(:nth-child(1)) {
+      border-top: solid 1px $base-purple;
+    }
+  }
+  // Learned this triangle technique from css-tricks.com
+  &::after {
+    content: '';
+    position: absolute;
+    top: -9px;
+    right: 45%;
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid #ebebeb;
+
+    @media screen and (min-width: 768px) {
+      top: -9px;
+      right: 8px;
+    }
   }
 }

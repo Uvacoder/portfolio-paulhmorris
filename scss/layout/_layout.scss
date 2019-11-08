@@ -1,4 +1,31 @@
-#alert {display: none;}
+.alert {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-top: 1em;
+  color: $white;
+}
+
+.alert-banner {
+  display: flex;
+  justify-content: flex-start;
+  height: 50px;
+  width: 90%;
+  background-color: $accent-purple;
+  border-radius: 8px;
+  transition: height .25s ease-in-out;
+  &-text {
+    display: inline-block;
+    margin: auto auto auto 1em;
+  }
+  &-close {
+    cursor: pointer;
+    margin: auto 1em auto auto;
+    font-size: 1.3em;
+    font-weight: 500;
+  }
+}
 
 .chart {
   position: relative;
@@ -35,6 +62,7 @@ canvas {
   @media screen and (min-width: 768px) {
     flex-direction: row;
     justify-content: space-between;
+    align-items: flex-start;
   }
 }
 
@@ -44,11 +72,24 @@ canvas {
   }
 }
 
+.social-container {
+  flex-basis: calc(33.33% - 20px);
+  display: flex;
+  align-items: center;
+  max-width: 320px;
+  min-width: 280px;
+  padding: 24px;
+  margin-bottom: 1.2em;
+  border: solid 1px $border;
+  border-radius: 4px;
+  background-color: #FBFBFB;
+}
+
 .members-container {
     padding: .6em;
     width: 100%;
     &:not(:last-child) {
-      border-bottom: inherit
+      border-bottom: solid 1px $border;
     }
     & .profile-image {
       height: 70px;
@@ -66,7 +107,6 @@ canvas {
       display: flex;
       justify-content: space-around;
       align-items: center;
-      border-top: solid 1px $border;
       & p, a {
         font-size: 14px;
         margin-bottom: 0;
@@ -118,29 +158,18 @@ canvas {
     display: inline-block;
     padding: 6px 10px;
     cursor: pointer;
-    transition: transform .25s;
+    border-radius: 14px;
+    transition: transform .25s, background .25s ease-in, color .25s ease-in;
     &:hover {
       transform: translateY(-2px);
     }
   }
   & .active {
     color: white;
-    font-weight: 600;
+    font-weight: 700;
     background: rgb(129, 201, 143);
     border-radius: 14px;
   }
-}
-
-.social-container {
-  flex-basis: calc(33.33% - 20px);
-  display: flex;
-  align-items: center;
-  max-width: 320px;
-  padding: 24px;
-  margin-bottom: 1.2em;
-  border: solid 1px $border;
-  border-radius: 4px;
-  background-color: #FBFBFB;
 }
 
 .arrow {
@@ -153,7 +182,7 @@ canvas {
 
 // Adjusts the spans for grid items at desktop view
 @media screen and (min-width: 768px) {
-  .traffic, .social, .main-header {
+  .traffic, .social, .main-header, #alert {
     grid-column: 1 / span 2;
   }
 }

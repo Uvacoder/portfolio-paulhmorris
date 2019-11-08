@@ -17,3 +17,31 @@
     font-weight: 300;
   }
 }
+
+.section-title {
+  margin: 0 auto 2em auto;
+  font-size: 0.9em;
+  font-weight: 600;
+  text-transform: uppercase;
+
+  @media screen and (min-width: 768px) {
+    margin: 0 auto 2em 0;
+  }
+}
+
+.button-primary,
+.button-disabled {
+  text-transform: uppercase;
+  font-size: .9em;
+  font-weight: 700;
+}
+
+.title {
+  color: $white;
+  font-weight: 300;
+  font-size: 1.3em;
+  & strong {
+    color: $white;
+    font-weight: 700;
+  }
+}
