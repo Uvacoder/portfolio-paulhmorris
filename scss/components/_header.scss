@@ -50,6 +50,11 @@
   }
 }
 
+.icon:hover > .bell {
+  transform: scale(1.15);
+  fill: $white;
+}
+
 .user {
   margin-right: 1em;
   display: flex;
@@ -84,7 +89,7 @@
   z-index: 100;
   position: absolute;
   width: 280px;
-  background-color: #ebebeb;
+  background-color: $white;
   top: 35px;
   right: -122px;
   border-radius: 3px;
@@ -100,17 +105,18 @@
     margin-bottom: 0;
   }
   &-title {
-    padding: 1em 1em 0 1em;
-    color: $base-purple;
+    padding: .65em 1em;
+    color: $font-color;
     margin: 0 auto;
+    border-bottom: solid 1px $border;
   }
   &-item {
     padding: .1em 1em .3em 1em;
     &:hover {
-      background-color: $white;
+      background-color: #ebebeb;
     }
     &:not(:nth-child(1)) {
-      border-top: solid 1px $base-purple;
+      border-top: solid 1px $border;
     }
   }
   // Learned this triangle technique from css-tricks.com
@@ -123,7 +129,7 @@
     height: 0;
     border-left: 10px solid transparent;
     border-right: 10px solid transparent;
-    border-bottom: 10px solid #ebebeb;
+    border-bottom: 10px solid $white;
 
     @media screen and (min-width: 768px) {
       top: -9px;

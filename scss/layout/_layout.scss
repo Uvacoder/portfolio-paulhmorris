@@ -1,5 +1,5 @@
 .alert {
-  display: none;
+  display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
@@ -49,7 +49,6 @@ canvas {
   border-top: solid 1px $border;
 }
 
-.social-wrap,
 .members,
 .recent,
 .message-users,
@@ -66,11 +65,19 @@ canvas {
   }
 }
 
-@media screen and (min-width: 768px) {
-  .social-wrap {
-    justify-content: space-between;
+.social-wrap {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  @media screen and (min-width: 980px) {
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
   }
 }
+
 
 .social-container {
   flex-basis: calc(33.33% - 20px);

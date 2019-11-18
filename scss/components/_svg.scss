@@ -3,6 +3,8 @@
   color: $white;
   height: 25px;
   width: 25px;
+  transition: transform .5s ease-in-out, fill .5s ease-in-out;
+  scale: 1;
 }
 
 #Layer_1 path {

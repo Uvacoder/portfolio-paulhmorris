@@ -4,7 +4,7 @@ const alert = document.getElementById('alert');
 alert.innerHTML =
   `
   <div class="alert-banner">
-    <p class="alert-banner-text"><strong>Alert:</strong> You have <strong>6</strong> overdue tasks to complete</p>
+    <p class="alert-banner-text"><strong>Alert:</strong> Welcome! You have <strong>6</strong> overdue tasks to complete. Better get to it.</p>
     <p class="alert-banner-close">x</p>
   </div>
   `;
@@ -32,7 +32,7 @@ send.addEventListener('click', (e) => {
   alert.style.display = "flex";
   // ensure user and message fields are filled outBack
   if (user.value === "" && message.value === "") {
-    alertText.textContent = "Please fill out user and message fields before sending";
+    alertText.textContent = "Please fill out the user and message fields before sending";
   } else if (user.value === "") {
     alertText.textContent = "Please fill out user field before sending";
   } else if (message.value === "") {
@@ -322,35 +322,33 @@ let mobileChart = new Chart(mobileCanvas, {
   options: mobileOptions
 });
 
-//----- Settings Local Storage -----//
+//----- Settings: Local Storage -----//
 const email = document.querySelector('#email');
 const public = document.querySelector('#public');
+const timezone = document.querySelector('#timezone');
 
 window.onload = function() {
-  if (localStorage.email === 'true') {
-    email.checked = true;
-  } else {
-    email.checked = false;
+  if (localStorage.email) {
+    email.checked = JSON.parse(localStorage.email);
   }
-  if (localStorage.public === 'true') {
-    public.checked = true;
-  } else {
-    public.checked = false;
+
+  if (localStorage.public) {
+    public.checked = JSON.parse(localStorage.public);
+  }
+
+  if (localStorage.timezone) {
+    timezone.value = localStorage.timezone;
   }
 };
 
 email.addEventListener('click', () => {
-  if (email.checked === true) {
-    localStorage.setItem('email', true);
-  } else {
-    localStorage.setItem('email', false);
-  }
+  localStorage.setItem('email', email.checked);
 });
 
 public.addEventListener('click', () => {
-  if (public.checked === true) {
-    localStorage.setItem('public', true);
-  } else {
-    localStorage.setItem('public', false);
-  }
+  localStorage.setItem('public', public.checked);
+});
+
+timezone.addEventListener('change', () => {
+  localStorage.setItem('timezone', timezone.value);
 });

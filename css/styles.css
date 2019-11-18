@@ -487,7 +487,9 @@ template {
 }
 
 .alert {
-  display: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -548,7 +550,6 @@ canvas {
   border-top: solid 1px #DADADA;
 }
 
-.social-wrap,
 .members,
 .recent,
 .message-users,
@@ -569,7 +570,6 @@ canvas {
 }
 
 @media screen and (min-width: 768px) {
-  .social-wrap,
   .members,
   .recent,
   .message-users,
@@ -587,11 +587,33 @@ canvas {
   }
 }
 
-@media screen and (min-width: 768px) {
+.social-wrap {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+@media screen and (min-width: 980px) {
   .social-wrap {
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
   }
 }
 
@@ -840,6 +862,12 @@ canvas {
   }
 }
 
+.icon:hover > .bell {
+  -webkit-transform: scale(1.15);
+          transform: scale(1.15);
+  fill: #FFF;
+}
+
 .user {
   margin-right: 1em;
   display: -webkit-box;
@@ -884,7 +912,7 @@ canvas {
   z-index: 100;
   position: absolute;
   width: 280px;
-  background-color: #ebebeb;
+  background-color: #FFF;
   top: 35px;
   right: -122px;
   border-radius: 3px;
@@ -905,9 +933,10 @@ canvas {
 }
 
 .notif-title {
-  padding: 1em 1em 0 1em;
-  color: #4d4c72;
+  padding: .65em 1em;
+  color: #727171;
   margin: 0 auto;
+  border-bottom: solid 1px #DADADA;
 }
 
 .notif-item {
@@ -915,11 +944,11 @@ canvas {
 }
 
 .notif-item:hover {
-  background-color: #FFF;
+  background-color: #ebebeb;
 }
 
 .notif-item:not(:nth-child(1)) {
-  border-top: solid 1px #4d4c72;
+  border-top: solid 1px #DADADA;
 }
 
 .notif::after {
@@ -931,7 +960,7 @@ canvas {
   height: 0;
   border-left: 10px solid transparent;
   border-right: 10px solid transparent;
-  border-bottom: 10px solid #ebebeb;
+  border-bottom: 10px solid #FFF;
 }
 
 @media screen and (min-width: 768px) {
@@ -1322,6 +1351,11 @@ canvas {
   color: #FFF;
   height: 25px;
   width: 25px;
+  -webkit-transition: fill .5s ease-in-out, -webkit-transform .5s ease-in-out;
+  transition: fill .5s ease-in-out, -webkit-transform .5s ease-in-out;
+  transition: transform .5s ease-in-out, fill .5s ease-in-out;
+  transition: transform .5s ease-in-out, fill .5s ease-in-out, -webkit-transform .5s ease-in-out;
+  scale: 1;
 }
 
 #Layer_1 path {
