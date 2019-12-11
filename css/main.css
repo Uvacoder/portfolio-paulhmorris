@@ -50,6 +50,7 @@ a {
 
 /* ----- Layout Classes ----- */
 
+
 .wrapper {
   position: relative;
   overflow: hidden;
@@ -234,13 +235,13 @@ a {
 
   .footer {
     flex-direction: row;
-    margin-bottom: 3.7rem;
+    margin-bottom: 4.3rem;
     margin-top: auto;
   }
 
   .title {
     color: #EF9191;
-    font-size: 5.3rem;
+    font-size: 4.5rem;
     font-weight: 700;
     text-align: right;
   }
