@@ -6,7 +6,6 @@ html {
 body {
   display: none;
   width: 100vw;
-  height: 100vh;
   color: #f6c7a6;
   font-family: 'Roboto', Helvetica, sans-serif;
   
@@ -63,36 +62,40 @@ a {
 }
 
 .main-wrapper {
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  width: 67%;
-  max-width: 880px;
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+  /* justify-content: center; */
+  width: 100%;
   margin: 0 auto;
   z-index: -1;
-  /* border: solid 1px tomato; */
 }
 
 .project-wrapper {
-  position: absolute;
-  right: -5000px;
-  top: 0;
-  bottom: 0;
-  margin-right: 7%;
   justify-content: center;
-  align-items: flex-end;
-  z-index: -1;
+  align-items: center;
+}
+
+.project {
+  text-align: center;
+  margin-bottom: .8rem;
+}
+
+.project:active {
+  text-decoration: line-through;
 }
 
 .header {
-  margin-top: 4.6rem;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 1.5rem;
   margin-bottom: auto;
 }
 
 .footer {
-  margin-bottom: 4rem;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 1.5rem;
   margin-top: auto;
 }
 
@@ -101,9 +104,8 @@ a {
 .proj-div,
 .email-div {
   display: none;
-  padding: 12px;
+  padding: 16px;
   cursor: pointer;
-  border: solid 1px black;
 }
 
 .proj-div,
@@ -120,6 +122,7 @@ a {
 .git-div,
 .email-div {
   position: relative;
+  height: 45%;
 }
 
 .git, 
@@ -128,39 +131,19 @@ a {
 }
 
 .git-icon {
-  opacity: 0;
-  width: 40px;
-  height: 40px;
+  opacity: 1;
+  margin: 1.2rem auto;
+  width: 50px;
+  height: 50px;
   padding: 0;
-  position: absolute;
-  left: 0;
-  bottom: 5px;
 }
 
 .email-icon {
-  transform: scale(0);
-  width: 35px;
-  height: 35px;
-  padding: 0;
-  position: absolute;
-  right: 36%;
-  bottom: 8px;
-  transition: transform .3s;
-}
-
-.email-div:hover .email-icon {
   transform: scale(1);
-}
-
-.name-div,
-.git-div {
-  margin-left: 8.62%;
-}
-
-.proj-div,
-.email-div {
-  margin-right: 8.62%;
-  margin-left: auto;
+  width: 50px;
+  height: 50px;
+  padding: 0;
+  transition: transform .3s;
 }
 
 .profile-pic {
@@ -170,7 +153,8 @@ a {
 }
 
 .about {
-  margin-left: 3.4rem;
+  padding: 2rem;
+  text-align: center;
 }
 
 .hero {
@@ -178,19 +162,123 @@ a {
   font-weight: 500;
 }
 
-.title {
-  color: #EF9191;
-  font-size: 5.5rem;
+.hey-there {
+  opacity: 0;
+  font-size: 0.8em;
   font-weight: 700;
 }
 
-.title:hover {
-  cursor: pointer;
-  text-decoration: line-through;
+.title {
+  color: #EF9191;
+  font-size: 2.7rem;
+  font-weight: 700;
 }
 
 .description {
   font-size: 1.5rem;
   font-weight: 700;
   line-height: 125%;
+}
+
+@media only screen and (min-width: 768px) {
+  body {
+    height: 100vh;
+  }
+  
+  .main-wrapper {
+    flex-direction: column;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 67%;
+    max-width: 880px;
+    margin: 0 auto;
+    z-index: -1;
+  }
+
+  .project-wrapper {
+    position: absolute;
+    right: -5000px;
+    top: 0;
+    bottom: 0;
+    margin-right: 7%;
+    justify-content: center;
+    align-items: flex-end;
+    z-index: -1;
+  }
+
+  .header {
+    flex-direction: row;
+    margin-top: 4.3rem;
+    margin-bottom: auto;
+  }
+
+  .name-div,
+  .git-div {
+    margin-left: 8.62%;
+  }
+
+  .proj-div,
+  .email-div {
+    margin-right: 8.62%;
+    margin-left: auto;
+  }
+
+  .about {
+    padding: 0;
+    text-align: left;
+    margin-left: 3.4rem;
+  }
+
+  .footer {
+    flex-direction: row;
+    margin-bottom: 3.7rem;
+    margin-top: auto;
+  }
+
+  .title {
+    color: #EF9191;
+    font-size: 5.5rem;
+    font-weight: 700;
+    text-align: right;
+  }
+
+  .title:hover {
+    cursor: pointer;
+    text-decoration: line-through;
+  }
+
+  .git-icon {
+    opacity: 0;
+    margin: 0;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    position: absolute;
+    left: 0;
+    bottom: 9px;
+  }
+  
+  .email-icon {
+    transform: scale(0);
+    width: 35px;
+    height: 35px;
+    padding: 0;
+    position: absolute;
+    right: 37%;
+    bottom: 12px;
+    transition: transform .3s, height .3s;
+  }
+
+  .email-div:hover .email-icon {
+    transform: scale(1);
+  }
+}
+
+@media only screen and (min-width: 930px) {
+  .main-wrapper {
+    flex-direction: row;
+  }
 }
